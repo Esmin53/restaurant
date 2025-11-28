@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Oswald, Roboto_Slab } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import { Toaster } from "sonner";
 
 const robotoSlab = Roboto_Slab({
   subsets: ["latin"]
@@ -31,10 +32,13 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${robotoSlab.className} antialiased bg-background text-text`}
+        className={`${robotoSlab.className} antialiased text-text flex flex-col min-h-screen`}
       >
         <Navbar />
-        {children}
+        <div className="flex-1 flex flex-col">
+          {children}
+        </div>
+        <Toaster richColors position="top-center"/>
       </body>
     </html>
   );

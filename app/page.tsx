@@ -1,7 +1,14 @@
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
+import authOptions from "@/lib/auth";
+import { getServerSession } from "next-auth";
 import Image from "next/image";
 
-export default function Home() {
+export default async function Home() {
+
+  const session = await getServerSession(authOptions)
+
+  console.log("This is session", session?.user)
+
   return (
     <div className=" w-full">
       <MaxWidthWrapper>
