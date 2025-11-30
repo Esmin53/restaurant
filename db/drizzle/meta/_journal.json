@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1764524977214,
+      "tag": "0000_short_venom",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1764525517688,
+      "tag": "0001_stale_norman_osborn",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1764525595550,
+      "tag": "0002_swift_black_queen",
+      "breakpoints": true
+    }
+  ]
+}

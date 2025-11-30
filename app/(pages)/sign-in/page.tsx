@@ -38,7 +38,7 @@ const Page = () => {
                     toast.error("Please check your credentials and try again!")
                 }
             } catch (error) {
-                toast.error("Something went wrong! Please check your network conection and try again!")
+                toast.error("Something went wrong! Please check your network connection and try again!")
                 setIsLoading(false)
             } finally {
                 setIsLoading(false)

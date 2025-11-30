@@ -13,7 +13,7 @@ const Navbar = async () => {
   return (
     <div className='w-full flex items-center justify-center h-20 z-50'>
         <div className='w-full max-w-7xl flex items-center justify-between '>
-        <h1 className='text-4xl font-semibold text-accent'>Logo</h1>
+        <h1 className='text-4xl font-semibold text-accent-custom'>Logo</h1>
         <ul className='flex items-center gap-6'>
             <li className='text-xl font-medium cursor-pointer' >
                 <Link href={'/'}>

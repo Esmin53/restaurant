@@ -32,7 +32,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${robotoSlab.className} antialiased text-text flex flex-col min-h-screen`}
+        className={`${robotoSlab.className} antialiased text-text flex flex-col min-h-screen bg-background-custom text-text-custom`}
       >
         <Navbar />
         <div className="flex-1 flex flex-col">
