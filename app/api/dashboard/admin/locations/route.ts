@@ -62,3 +62,15 @@ export const POST = async (req: Request, res: Response) => {
      return NextResponse.json({ error})
     }
 }
+
+export const GET = async () => {
+    try {
+        
+        const locationsArray = await db.select().from(locations)
+
+        return new Response(JSON.stringify({data: locationsArray}), {status: 200})
+    } catch (error) {
+    console.log(error)   
+        return NextResponse.json({ error})
+    }
+}

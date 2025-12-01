@@ -2,6 +2,7 @@
 
 import MaxWidthWrapper from '@/components/MaxWidthWrapper'
 import NewLocationForm from '@/components/NewLocationForm'
+import DisplayLocations from '@/components/ui/DisplayLocations'
 import { Hotel } from 'lucide-react'
 
 
@@ -17,10 +18,13 @@ const page = () => {
                         <h1 className=' text-2xl font-medium'>Locations</h1>
                         <Hotel className='w-7 h-7'/>
                     </div>
-                    <div className='flex flex-wrap gap-2 '>
-                        <NewLocationForm />
-                    </div>
-                   
+                    <div className='flex flex-wrap gap-2 w-full'>
+
+                      <DisplayLocations />
+
+
+                      <NewLocationForm />
+                    </div>                   
               </div>
 
           </div>

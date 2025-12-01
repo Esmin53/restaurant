@@ -17,10 +17,10 @@ const Sidebar = () => {
             <Hotel className='w-7 h-7'/>
             <p className='text-xl font-medium'>Locations</p>
         </Link>
-        <div className='flex gap-2 items-center cursor-pointer'>
+        <Link href={'/dashboard/admin/staff'} className='flex gap-2 items-center cursor-pointer'>
             <UserPlus className='w-7 h-7'/>
             <p className='text-xl font-medium'>Staff</p>
-        </div>
+        </Link>
         <div className='flex gap-2 items-center cursor-pointer'>
             <CookingPot className='w-7 h-7'/>
             <p className='text-xl font-medium'>Menu</p>

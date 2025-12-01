@@ -7,6 +7,7 @@ export const users = pgTable("users", {
   name: varchar({ length: 255 }).notNull().unique(),
   password: varchar({length: 21}).notNull(),
   role: RoleEnum('role').notNull().default('customer'),
+  image: varchar({ length: 255 }),
   createdAt: timestamp("created_at").defaultNow().notNull(),
   updatedAt: timestamp("updated_at").defaultNow().notNull()
 });

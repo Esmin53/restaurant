@@ -67,7 +67,7 @@ const NewLocationForm = () => {
     } 
   
     return (
-        <form className='w-80 aspect-square bg-gray-200 p-2 flex flex-col gap-1' onSubmit={handleSubmit(onSubmit)}>
+        <form className='w-80 aspect-square bg-gray-200 p-2 flex flex-col gap-1 sticky top-2 h-fit border border-gray-300' onSubmit={handleSubmit(onSubmit)}>
             <div className='flex-1 border-2 border-gray-100 border-dashed cursor-pointer relative flex items-center justify-center'>
                 {preview ? <Image src={preview} alt="File preview" fill className="object-cover absolute z-30"/> : null}
                 {preview ? <Trash2 className="absolute top-2 right-2 z-40 cursor-pointer text-red-500" onClick={() => {
