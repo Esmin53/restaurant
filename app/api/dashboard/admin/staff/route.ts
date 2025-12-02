@@ -1,7 +1,8 @@
-import { locationStaff, users } from "@/db/schema"
+import { locations, locationStaff, users } from "@/db/schema"
 import authOptions from "@/lib/auth"
 import { db } from "@/lib/db"
 import { put } from "@vercel/blob"
+import { eq } from "drizzle-orm"
 import { getServerSession } from "next-auth"
 import { NextResponse } from "next/server"
 
@@ -65,6 +66,30 @@ export const POST = async (req: Request, res: Response) => {
         
 
         return new Response(JSON.stringify({data: insertedId}), {status: 200})
+    } catch (error) {
+        console.log(error)
+        return NextResponse.json({ error})
+    }
+}
+
+export const GET = async () => {
+    try {
+        const staff = await db
+        .select({
+            id: users.id,
+            name: users.name,
+            image: users.image,
+            salary: locationStaff.salary,
+            position: locationStaff.position,
+            location: locations.name,
+            adress: locations.adress
+        })
+        .from(users)
+        .where(eq(users.role, 'staff'))
+        .leftJoin(locationStaff, eq(users.id, locationStaff.userId))
+        .leftJoin(locations, eq(locationStaff.locationId, locations.id));
+
+        return new Response(JSON.stringify({data: staff}), {status: 200})
     } catch (error) {
         console.log(error)
         return NextResponse.json({ error})

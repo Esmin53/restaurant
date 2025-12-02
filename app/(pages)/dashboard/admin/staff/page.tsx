@@ -1,5 +1,6 @@
 "use client"
 
+import DisplayStaff from '@/components/DisplayStaff'
 import NewUserForm from '@/components/forms/NewUserForm'
 import MaxWidthWrapper from '@/components/MaxWidthWrapper'
 import { UserCog } from 'lucide-react'
@@ -16,9 +17,7 @@ const page = () => {
                     </div>
                     <div className='flex flex-wrap gap-2'>
                         
-                        <div className='flex-1 bg-gray-200 min-h-[300vh]'>
-
-                        </div>
+                        <DisplayStaff />
                         <NewUserForm />
                     </div>
                    
