@@ -21,10 +21,10 @@ const Sidebar = () => {
             <UserPlus className='w-7 h-7'/>
             <p className='text-xl font-medium'>Staff</p>
         </Link>
-        <div className='flex gap-2 items-center cursor-pointer'>
+        <Link href={'/dashboard/admin/menu'} className='flex gap-2 items-center cursor-pointer'>
             <CookingPot className='w-7 h-7'/>
             <p className='text-xl font-medium'>Menu</p>
-        </div>
+        </Link>
         <div className='flex gap-2 items-center cursor-pointer'>
             <PackageOpen className='w-7 h-7'/>
             <p className='text-xl font-medium'>Orders</p>

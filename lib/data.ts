@@ -1,0 +1,1 @@
+export const CATEGORY_ENUM_ARRAY = ['pizza', 'pasta', 'burger', 'chicken', 'salad', 'drink', 'dessert', 'other']

@@ -60,7 +60,7 @@ export const POST = async (req: Request, res: Response) => {
                 userId: insertedId,
                 locationId: Number(location),
                 position,
-                salary: Number(salary)
+                salary: salary
             })
         }
         
