@@ -1,5 +1,6 @@
 "use client"
 
+import DisplayMenuItems from '@/components/DisplayMenuItems'
 import NewCategoryForm from '@/components/forms/NewCategoryForm'
 import NewMenuItem from '@/components/forms/NewMenuItem'
 import MaxWidthWrapper from '@/components/MaxWidthWrapper'
@@ -48,7 +49,8 @@ const page = () => {
                     <div className='flex flex-col gap-2 w-full'>
                         <NewCategoryForm categories={categories} setCategories={setCategories}/>
                         <NewMenuItem categories={categories}/>
-                    </div>                   
+                    </div>
+                    <DisplayMenuItems />                   
               </div>
 
           </div>

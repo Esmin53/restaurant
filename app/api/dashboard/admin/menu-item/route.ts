@@ -1,7 +1,8 @@
-import { menuItems } from "@/db/schema";
+import { categories, menuItems } from "@/db/schema";
 import authOptions from "@/lib/auth";
 import { db } from "@/lib/db";
 import { put } from "@vercel/blob";
+import { eq } from "drizzle-orm";
 import { getServerSession } from "next-auth";
 import { NextResponse } from "next/server";
 
@@ -22,7 +23,7 @@ export const POST = async (req: Request, res: Response) => {
         const file = formData.get("image") as  File
         const category = formData.get("category") as string
 
-        let imageUrl: string 
+ 
 
 
             const blob = await put(title, new Blob([file!]), {
@@ -31,7 +32,7 @@ export const POST = async (req: Request, res: Response) => {
             addRandomSuffix: true,
             contentType: file.type
             });
-            imageUrl = blob.url
+
         
             if(!blob.url) {
                 return new Response(JSON.stringify({message: `Image upload has failed, please check file size and try again!`}), {status: 400})
@@ -43,13 +44,33 @@ export const POST = async (req: Request, res: Response) => {
                 description: description,
                 price: price,
                 categoryId: Number(category),
-                image: imageUrl
+                image: blob.url
             })
         
 
         return new Response(JSON.stringify({data: newMenuItem}), {status: 200})
     } catch (error) {
         console.log(error)
+        return NextResponse.json({ error})
+    }
+}
+
+export const GET = async (req: Request, res: Response) => {
+    try {
+        
+        const menuItemsArray = await db.select({
+            id: menuItems.id,
+            title: menuItems.title,
+            description: menuItems.description,
+            price: menuItems.price,
+            image: menuItems.image,
+            category: categories.name
+        }).from(menuItems).leftJoin(categories, eq(menuItems.categoryId, categories.id))
+
+        console.log(menuItemsArray)
+
+        return new Response(JSON.stringify({data: menuItemsArray}), {status: 200})
+    } catch (error) {
         return NextResponse.json({ error})
     }
 }
